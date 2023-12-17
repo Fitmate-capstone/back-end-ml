@@ -1,4 +1,4 @@
-import requests
+import requests, os
 from flask import Flask, jsonify, request
 from werkzeug.utils import secure_filename
 from tensorflow import keras
@@ -9,7 +9,6 @@ from google.cloud import storage
 
 app = Flask(__name__)
 app.config["ALLOWED_EXTENSIONS"] = set(['png', 'jpg', 'jpeg'])
-# app.config["UPLOAD_FOLDER"] = "static/uploads"
 
 def allowed_file(filename):
     return "." in filename and \
@@ -36,8 +35,6 @@ def prediction():
         if image and allowed_file(image.filename):
             # Save Input Image
             filename = secure_filename(image.filename)
-            # image.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
-            # image_path = os.path.join(app.config["UPLOAD_FOLDER"], filename)
             bucket_name = 'bucket-name'
             storage_client = storage.Client()
             bucket = storage_client.bucket(bucket_name)
@@ -61,7 +58,7 @@ def prediction():
             confidence_score = prediction[0][index]
 
             #redirect
-            external_api_url = process.env.URL+class_names[2:]
+            external_api_url = os.getenv('API_URL')+class_names[2:]
             response = requests.get(external_api_url)
             hasil_request = response.json()
 
