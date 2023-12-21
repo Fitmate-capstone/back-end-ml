@@ -30,7 +30,7 @@ python -m venv .venv
 .venv\Scripts\activate
 ```
 
-- Linux:
+- Linux & MacOS:
 
 ```
 source .venv/bin/activate
@@ -44,7 +44,7 @@ pip install -r requirements.txt
 
 ## Notes
 
-If you want to deploy to google cloud you can use bucket by changing the value of the variable bucket_name. But if you want to run locally, you can uncomment line code 12,39,40 and comment line code 8,41,42,43,44,45. Also in local you need to create folder .\static\uploads in work directory. Lastly, you need to run back-end while trying this API. If, the PORT are the same, you can change this API PORT to 5000.
+If you want to deploy to google cloud you can use bucket by changing the value of the variable bucket_name. But if you want to run locally, you can uncomment line code 12,39,40 and comment line code 8,41,42,43,44,45. Also in local you need to create folder .\static\uploads and .env in work directory. Lastly, you need to copy configuration in .env.example to .env and run back-end while trying this API. If, the PORT are the same, you can change this API PORT to 5000.
 
 ## Model
 

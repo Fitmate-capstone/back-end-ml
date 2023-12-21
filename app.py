@@ -47,11 +47,11 @@ def prediction():
 
             #Pre-Processing input image
             img = Image.open(image).convert("RGB")
-            img = img.resize((150, 150))
+            img = img.resize((224, 224))
             img_array = np.asarray(img)
             img_array = np.expand_dims(img_array, axis=0)
             normalized_image_array = (img_array.astype(np.float32) / 127.5) - 1
-            data = np.ndarray(shape=(1, 150, 150, 3), dtype=np.float32)
+            data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
             data[0] = normalized_image_array
 
             # Predicting the image
