@@ -1,0 +1,45 @@
+{
+	"info": {
+		"_postman_id": "8c71f024-45bc-4515-adfd-9774321dfce5",
+		"name": "Test Project Bangkit",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31838271"
+	},
+	"item": [
+		{
+			"name": "getPrediction",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/KULIAH/SILABUS SEMESTER 7/Capstone/API/Tutor Deploy/elip.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/prediction?image",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"prediction"
+					],
+					"query": [
+						{
+							"key": "image",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
